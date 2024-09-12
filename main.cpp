@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
     sevo::Counter2 c2 = sevo::Counter2(1, 20, 2);
 
     c2.set_counter_event_handler([](sevo::Counter2 sender, sevo::CounterEventType type) -> void {
+        std::cout << "type: " << static_cast<int>(type) << std::endl;
         if(type == sevo::CounterEventType::STARTED) {
             std::cout << "COUNTER_STARTED count: " << sender.get_count() << std::endl;
         }else if(type == sevo::CounterEventType::CHANGED) {
